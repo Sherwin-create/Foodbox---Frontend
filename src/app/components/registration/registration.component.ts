@@ -1,12 +1,18 @@
 import { RegistrationService } from './../../services/registration.service';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
 })
+
+
+
 export class RegistrationComponent implements OnInit {
+  
   credentials = {
     username: '',
     firstName: '',
@@ -15,6 +21,7 @@ export class RegistrationComponent implements OnInit {
     email: '',
   };
 
+  
   constructor(private registrationService: RegistrationService) {}
 
   ngOnInit(): void {}
@@ -25,10 +32,26 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.createAccount(this.credentials).subscribe(
       (response: any) => {
         console.log('success');
-        window.location.href = '/login';
+        Swal.fire({
+          title: 'Success!',
+          text: 'Registration successfull',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+          timer: 1000,
+
+        }).then(function() {
+          window.location.href = "/login";
+      });
+        // window.location.href = '/login';
       },
       (error) => {
-        console.log('please try with some other username');
+        Swal.fire({
+          title: 'error!',
+          text: 'Something went wrong try it with other username',
+          icon: 'error',
+          confirmButtonText: 'Cool',
+          timer: 1000
+        })
       }
     );
   }
