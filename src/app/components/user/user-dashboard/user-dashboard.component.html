@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 form-outline">
+      <input
+        class="form-control mr-sm-2 form-inline my-2 my-lg-0"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        [(ngModel)]="searchTerm"
+        (keyup)="search($event)"
+        placeholder="search by food item name"
+      />
+    </div>
+    <br />
+    <br />
+
+    <div class="col-md-10">
+      <br>
+      <h2>Shop your faviourate food item</h2>
+      <br />
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

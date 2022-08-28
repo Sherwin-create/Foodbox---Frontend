@@ -1,0 +1,32 @@
+<br>
+<br>
+<div class="container ">
+  <div class="row position-relative">
+    <div class="col-md-4 mb-4" *ngFor="let tempProduct of productList | filter:searchKey:'fName'">
+      <div class="card">
+        <img
+        src="{{ tempProduct.img }}"
+        class="card-img-top"
+        alt="Image of a food item {{tempProduct.fName}}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{tempProduct.fName}}</h5>
+          <p class="card-text">
+           {{ tempProduct.fDescription}}
+          </p>
+          <p>cusine: {{tempProduct.cusines.cName}}</p>
+          <div class="d-flex justify-content-between">
+            <span class="btn btn-success">Price : &#8377; {{tempProduct.price}}</span>
+            <a  class="btn btn-primary" (click)="addToCart(tempProduct)">Add to cart</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-floating fixed-bottom" routerLink="/user/viewCart">View Cart</button>
+  </div>
+  
+</div>
+   
+
+

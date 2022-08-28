@@ -1,0 +1,38 @@
+<ng-container>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Cusines</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = 'let f of product; let i = index'>
+      <td scope="row">{{i+ 1}}</td>
+      <td>{{f.fName}}</td>
+      <td>{{f.cusines.cName}}</td>
+      <td>{{f.price}}</td>
+      <td>
+        <button (click)="removeItem(f.fId)"> delete </button>
+      </td>
+    </tr>
+    <tr >
+      <td colspan="2" class="text-center">Total Item: {{totalItem}}</td>
+      <td colspan="2">Total Price:{{grandTotal}} </td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button></td>
+      <td><button class="btn btn-primary" (click)="checkout ()">Checkout</button></td>
+      <td><button class="btn" routerLink="/user/">Shop More</button></td>
+    </tr>
+  </tbody>
+</table>
+</ng-container>
+
+<div class="col-md-12" *ngIf="totalItem === 0">
+  <h1 class="text-center">cart is empty</h1>
+</div>
+

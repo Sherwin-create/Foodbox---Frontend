@@ -1,3 +1,4 @@
+import { FoodService } from './../../../services/food.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponentComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private foodService: FoodService,) { }
+  public productList: any =[];
   ngOnInit(): void {
+    this.foodService.fetchFood().subscribe(
+      (response: any) => {
+        this.productList = response;
+      }
+    );
   }
 
 }

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.loginService.loggingIn(this.credentials).subscribe(
       (response: any) => {
         console.log("Login Successfull");
-        window.location.href = "/login";
+        window.location.href = "/user";
       },
       (error) => {  
         Swal.fire({

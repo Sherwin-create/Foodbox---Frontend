@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>List of cusines</h1>
+  <br>
+  <ul class="list-group">
+    <li class="list-group-item clearfix" *ngFor="let c of cusines">
+      <img class="img-responsive img-rounded" src="http://placehold.it/256/163a63" alt=""/>
+      <h3 class="list-group-item-heading">
+        Cusine Name: 
+       {{  c.cName }}
+      </h3>
+      <br>
+      <p class="list-group-item-text lead">
+
+        Description: 
+        <br>
+       {{c.description}}
+
+        <br>
+        <br>
+        
+      </p>
+      <div class="btn-toolbar pull-right" role="toolbar" aria-label="">
+        <a class="btn btn-danger" (click)="deleteCusine(c.cId)" >Delete</a>
+        <a href="#" class="btn btn-outline-primary waves-effect" routerLink="/admin/editCusines">edit</a>
+      </div>
+    </li>
+    
+    <br>
+   
+    
+  </ul>
+  
+</div>
+<div class="container">
+  
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-primary" routerLink="/admin/addCuisine"> Add new cusines</button>
+    </div>
+   
+</div>
+
+<!-- <ng-template #cusineEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit cusines</h4>
+  </div>
+</ng-template> -->

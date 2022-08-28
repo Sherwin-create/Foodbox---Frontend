@@ -1,1 +1,23 @@
-<h1>this</h1>
+<div class="container">
+  <div class="row position-relative">
+    <div class="col-md-4 mb-4" *ngFor="let tempProduct of productList">
+      <div class="card">
+        <img
+          src="{{ tempProduct.img }}"
+          class="card-img-top"
+          alt="Image of a food item {{ tempProduct.fName }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ tempProduct.fName }}</h5>
+          <p class="card-text">
+            {{ tempProduct.fDescription }}
+          </p>
+          <p>cusine: {{ tempProduct.cusines.cName }}</p>
+          <div class="d-flex justify-content-between">
+            <span class="btn btn-success">Price : {{ tempProduct.price }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

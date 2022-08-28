@@ -1,0 +1,74 @@
+<form (ngSubmit)="formSubmit()">
+  <h1>Edit {{ foodItem.fName }}</h1>
+  <div class="mb-3">
+    <label for="foodName" class="form-label">Name of the Food</label>
+    <input
+      type="text"
+      class="form-control"
+      id="foodname"
+      aria-describedby="emailHelp"
+      name="fName"
+      [(ngModel)]="foodItem.fName"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description: </label>
+    <input
+      type="text"
+      class="form-control"
+      id="description"
+      name="fDescription"
+      [(ngModel)]="foodItem.fDescription"
+      placeholder="Describe the food you have"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price in rs</label>
+    <input
+      type="text"
+      class="form-control"
+      id="price"
+      name="price"
+      [(ngModel)]="foodItem.price"
+      placeholder="&#8377;"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="img" class="form-label">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="img"
+      name="img"
+      [(ngModel)]="foodItem.img"
+    />
+  </div>
+  <div class="mb-5 form-check">
+    <label class="form-check-label" for="isEnabled"
+      >Enable&nbsp; &nbsp; &nbsp;
+    </label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value=""
+      id="isEnabled"
+      name="isEnabled"
+      [(ngModel)]="foodItem.enabled"
+    />
+  </div>
+  <div class="mb-5">
+    <div id="description" class="form-label mb-3">
+      Select cusines from dropdown menu
+    </div>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      name="cusines"
+      [(ngModel)]="foodItem.cusines"
+    >
+    
+      <option selected *ngFor="let c of cusines" [ngValue]="c">{{ c.cName }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
