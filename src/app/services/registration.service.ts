@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class RegistrationService {
-  url = 'http://localhost:8083';
+  url = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 

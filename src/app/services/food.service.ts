@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class FoodService {
 
-  url = 'http://localhost:8083';
+  url = 'http://localhost:8080';
 
   constructor(private http : HttpClient) { }
 

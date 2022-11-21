@@ -5,12 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
-  url = 'http://localhost:8083';
+  url = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
   loggingIn(credential: any) {
     return this.http.post(`${this.url}/login`, credential);
-    
   }
 }
